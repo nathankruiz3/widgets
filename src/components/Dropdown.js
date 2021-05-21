@@ -39,10 +39,17 @@ const Dropdown = (props) => {
   });
 
   return (
-    <div ref={ref} className="ui form">
+    <div
+      style={{ marginTop: "10px", width: "100%" }}
+      ref={ref}
+      className="ui form"
+    >
       <div className="field">
-        <label className="label">Select a {props.optionType}</label>
+        <label style={{ color: "white" }} className="label">
+          Select a {props.optionType}
+        </label>
         <div
+          style={{ width: "100%" }}
           className={
             dropdownOpen
               ? "ui selection dropdown visible active"

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
+import Translate from "./components/Translate";
+import Navbar from "./components/Navbar";
+import Route from "./components/Route";
 
 const items = [
   {
@@ -22,6 +25,10 @@ const items = [
 
 const colors = [
   {
+    title: "Grey",
+    value: "grey",
+  },
+  {
     title: "Red",
     value: "red",
   },
@@ -39,13 +46,36 @@ const App = () => {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
 
   return (
-    <div style={{ textAlign: "center", margin: "10px" }}>
-      <Dropdown
-        selected={selectedColor}
-        onSelectedChange={setSelectedColor}
-        options={colors}
-        optionType="Color"
-      />
+    <div
+      style={{
+        textAlign: "center",
+        padding: "0px 10px",
+        backgroundColor: `${selectedColor.value}`,
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100vw",
+      }}
+    >
+      <Navbar />
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          options={colors}
+          optionType="Color"
+          selected={selectedColor}
+          onSelectedChange={setSelectedColor}
+        />
+      </Route>
+      <Route path="/search">
+        <Search />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };

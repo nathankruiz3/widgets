@@ -42,18 +42,23 @@ const Search = () => {
           </a>
         </div>
         <div className="content">
-          <div className="header">{result.title}</div>
-          <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
+          <div style={{ color: "white" }} className="header">
+            {result.title}
+          </div>
+          <span
+            style={{ color: "white" }}
+            dangerouslySetInnerHTML={{ __html: result.snippet }}
+          ></span>
         </div>
       </div>
     );
   });
 
   return (
-    <div>
+    <div style={{ width: "100%", marginTop: "10px" }}>
       <div className="ui form">
         <div className="field">
-          <label>Enter Search Term</label>
+          <label style={{ color: "white" }}>Enter Search Term</label>
           <input
             className="input"
             value={term}

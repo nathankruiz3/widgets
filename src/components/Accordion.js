@@ -8,7 +8,7 @@ const Accordion = (props) => {
   };
 
   return (
-    <div className="ui styled accordion">
+    <div style={{ marginTop: "10px" }} className="ui styled accordion">
       {props.items &&
         props.items.map((item, index) => {
           return (
